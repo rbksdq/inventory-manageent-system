@@ -1,0 +1,9 @@
+------INSERT INTO USER VALUES(101, null, 'rbk',null,'sdq','adwqdqwfdq',03241234567,'dasd@gmail.com','qwe','dsad','das')
+------INSERT INTO USER VALUES(101, null, 'rbk',null,'sdq','dadaw','adwqdqwfdq',03241234567,'dasd@gmail.com','qwe','dsad','das')
+--INSERT INTO user VALUES ('manna','marium@gmail.com','123456',03001234567);
+----INSERT INTO USER VALUES(101, null, 'rbk',null,'sdq','adwqdqwfdq',03241234567,'dasd@gmail.com','qwe','dsad','das')
+----INSERT INTO USER VALUES(101, null, 'rbk',null,'sdq','dadaw','adwqdqwfdq',03241234567,'dasd@gmail.com','qwe','dsad','das')
+----INSERT INTO user VALUES (1,'Captain America',parsedatetime('30-06-2016 08:00', 'dd-MM-yyyy hh:mm'));
+--
+------INSERT INTO seans (id, title, DATETIME) VALUES (2,'Antman',parsedatetime('30-06-2016 10:00', 'dd-MM-yyyy hh:mm'));
+------INSERT INTO seans (id, title, DATETIME) VALUES (3,'Ironman',parsedatetime('30-06-2016 12:00', 'dd-MM-yyyy hh:mm'));
