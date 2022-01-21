@@ -43,6 +43,7 @@ public class UserController {
         return userRepo.save(user);
     }
 
+    //
     @GetMapping("/{roleid}/users/{userid}")
     public List<User> getUserByUserId(@PathVariable int roleid) throws RoleNameNotFoundException {
         Optional<Role> roleOptional = roleRepo.findById(roleid);
