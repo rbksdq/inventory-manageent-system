@@ -6,6 +6,7 @@ import com.inventorymanagementsystemrestservices.entity.Product;
 import com.inventorymanagementsystemrestservices.entity.Stock;
 import com.inventorymanagementsystemrestservices.exception.PricingNotExistException;
 import com.inventorymanagementsystemrestservices.exception.ProductNameNotFoundException;
+import com.inventorymanagementsystemrestservices.repository.CategoryRepo;
 import com.inventorymanagementsystemrestservices.repository.PricingRepo;
 import com.inventorymanagementsystemrestservices.repository.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class PricingController {
     public ProductRepo productRepo;
     @Autowired
     public PricingRepo pricingRepo;
+
 
 
     @GetMapping
