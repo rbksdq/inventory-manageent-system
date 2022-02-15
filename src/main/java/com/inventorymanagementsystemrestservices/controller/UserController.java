@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping(value = "/roles")
 public class UserController {
@@ -64,14 +65,16 @@ public class UserController {
     }
 
     @DeleteMapping("/{roleid}/users/{userid}")
-    public void deleteUserById(Long id, User user) throws UserNameNotFoundException {
-        Optional<User> userOptional=userRepo.findById(id);
+    public void deleteUserById(@PathVariable int id,@RequestBody User user) throws UserNameNotFoundException {
+        Optional<User> userOptional=userRepo.findById((long) id);
         if(!userOptional.isPresent()) {
             throw new UserNameNotFoundException("doesnt exist");
         }
         userRepo.delete(user);
     }
 }
+
+//update delete not working (error 500)
 
 //    //getALLUsers method
 //        @GetMapping

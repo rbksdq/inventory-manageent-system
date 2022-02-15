@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "categories")
+@RequestMapping(value = "categories/{categoryid}/products")
 //@RequestMapping(value="categories/{id}/products")
 public class ProductController {
 
@@ -23,7 +23,7 @@ public class ProductController {
     public CategoryRepo categoryRepo;
 
 
-    @GetMapping("/{categoryid}/products")
+    @GetMapping
     public List<Product> getAllProducts(@PathVariable int categoryid) throws CategoryNameNotFoundException {
         Optional<Category> categoryOptional = categoryRepo.findById(categoryid);
         if (!categoryOptional.isPresent())
@@ -31,7 +31,7 @@ public class ProductController {
         return categoryOptional.get().getProducts();
     }
 
-    @PostMapping("/{categoryid}/products")
+    @PostMapping
     public Product createProduct(@PathVariable int categoryid, @RequestBody Product product) throws CategoryNameNotFoundException {
         Optional<Category> categoryOptional = categoryRepo.findById(categoryid);
         if (!categoryOptional.isPresent())
@@ -46,7 +46,7 @@ public class ProductController {
 //        return productRepo.save(product);
     }
 
-    @GetMapping("/{categoryid}/products/{productid}")
+    @GetMapping("/{productid}")
     public List<Product> getProductsByProductId(@PathVariable int categoryid) throws CategoryNameNotFoundException {
         Optional<Category> categoryOptional = categoryRepo.findById(categoryid);
         if (!categoryOptional.isPresent())
@@ -54,19 +54,19 @@ public class ProductController {
         return categoryOptional.get().getProducts();
     }
 
-    @PutMapping("/{categoryid}/products/{productid}")
-    public Product updateProductById(int productid, Product product) throws ProductNameNotFoundException {
-        Optional<Product> productOptional= productRepo.findById(productid);
+    @PutMapping("/{productId}")
+    public Product updateProductById(@PathVariable int productId, @RequestBody Product product) throws ProductNameNotFoundException {
+        Optional<Product> productOptional= productRepo.findById(productId);
         if(!productOptional.isPresent()){
             throw new ProductNameNotFoundException("doesnt exist");
         }
-        product.setProductId(productid);
+        product.setProductId(productId);
         return productRepo.save(product);
     }
 
-    @DeleteMapping("/{categoryid}/products/{productid}")
-    public void deleteProductById(int productid, Product product) throws ProductNameNotFoundException {
-        Optional<Product> productOptional=productRepo.findById(productid);
+    @DeleteMapping("/{productId}")
+    public void deleteProductById(@PathVariable int productId, Product product) throws ProductNameNotFoundException {
+        Optional<Product> productOptional=productRepo.findById(productId);
         if(!productOptional.isPresent()) {
             throw new ProductNameNotFoundException("doesnt exist");
         }
@@ -74,10 +74,5 @@ public class ProductController {
     }
 
 
-    //creates product in loop .
-    //delete update doesnt work . throws error.
-    //doesnt show stock (MAYBEE)
 
-    //update stock which includes remove and add stock methods created in product entity class
-    //will deleting products automatically delete stock linked with it ?
 }

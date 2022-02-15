@@ -41,22 +41,23 @@ public class Stock implements Serializable {
 
 
         //bi-directional many-to-one association to Category
-        @ManyToOne
-        @JoinColumn(name="categoryId")
-        @JsonIgnore
-        private Category category;
+//        @ManyToOne
+//        @JoinColumn(name="categoryId")
+//        @JsonIgnore
+//        private Category category;
 
         public Stock() {
         }
 
-        public Stock(int stockId, String createdUser, Date dateStock, Date lastModifiedDateTime, int quantity, Product product, Category category) {
+        public Stock(int stockId, String createdUser, Date dateStock, Date lastModifiedDateTime, int quantity, Product product)//, Category category
+     {
         this.stockId = stockId;
         this.createdUser = createdUser;
         this.dateStock = dateStock;
         this.lastModifiedDateTime = lastModifiedDateTime;
         this.quantity = quantity;
         this.product = product;
-        this.category = category;
+    //    this.category = category;
     }
 
          public int getStockId() {
@@ -107,13 +108,13 @@ public class Stock implements Serializable {
             this.product = product;
         }
 
-        public Category getCategory() {
-            return this.category;
-        }
-
-        public void setCategory(Category category) {
-            this.category = category;
-        }
+//        public Category getCategory() {
+//            return this.category;
+//        }
+//
+//        public void setCategory(Category category) {
+//            this.category = category;
+//        }
 
     }
 

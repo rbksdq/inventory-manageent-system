@@ -33,19 +33,20 @@ public class Category implements Serializable{
     private List<Product> products;
 
     //bi-directional many-to-one association to Stock
-    @OneToMany(mappedBy="category")
-    @JsonIgnore
-    private List<Stock> stocks;
+//    @OneToMany(mappedBy="category")
+//    @JsonIgnore
+//    private List<Stock> stocks;
 
     public Category() {
     }
 
-    public Category(int categoryId, String categoryName, String createdUser, List<Product> products, List<Stock> stocks) {
+    public Category(int categoryId, String categoryName, String createdUser, List<Product> products)//, List<Stock> stocks)
+     {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.createdUser = createdUser;
         this.products = products;
-        this.stocks = stocks;
+      //  this.stocks = stocks;
     }
 
     public int getCategoryId() {
@@ -78,16 +79,16 @@ public class Category implements Serializable{
 
     public void setProducts(List<Product> products) {
         this.products = products;
-    }
+    }}
 
-    public List<Stock> getStocks() {
-        return stocks;
-    }
-
-    public void setStocks(List<Stock> stocks) {
-        this.stocks = stocks;
-    }
-}
+//    public List<Stock> getStocks() {
+//        return stocks;
+//    }
+//
+//    public void setStocks(List<Stock> stocks) {
+//        this.stocks = stocks;
+//    }
+//}
 
 
 //

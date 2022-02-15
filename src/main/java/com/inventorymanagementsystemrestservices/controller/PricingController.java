@@ -55,19 +55,19 @@ public class PricingController {
         return productOptional.get().getPricing();
     }
 
-    @PutMapping("/{productpricingid}")
-    public Pricing updatePricingById(int productid, Pricing pricing) throws ProductNameNotFoundException {
-        Optional<Product> productOptional = productRepo.findById(productid);
-        if (!productOptional.isPresent()) {
-            throw new ProductNameNotFoundException("doesnt exist");
+    @PutMapping("/{pricingId}")
+    public Pricing updatePricingById(@PathVariable int pricingId,@RequestBody Pricing pricing) throws  PricingNotExistException {
+        Optional<Pricing> pricingOptional = pricingRepo.findById(pricingId);
+        if (!pricingOptional.isPresent()) {
+            throw new PricingNotExistException("doesnt exist");
         }
-        pricing.setPricingId(productid);
+        pricing.setPricingId(pricingId);
         return pricingRepo.save(pricing);
     }
 
-    @DeleteMapping("/{productpricingid}")
-    public void deletePricingById(int pricingid, Pricing pricing) throws PricingNotExistException {
-        Optional<Pricing> pricingOptional = pricingRepo.findById(pricingid);
+    @DeleteMapping("/{pricingId}")
+    public void deletePricingById(@PathVariable int pricingId, Pricing pricing) throws PricingNotExistException {
+        Optional<Pricing> pricingOptional = pricingRepo.findById(pricingId);
         if (!pricingOptional.isPresent()) {
             throw new PricingNotExistException("pricing doesnt exist");
         }

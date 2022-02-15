@@ -40,6 +40,29 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
         return new ResponseEntity<>(customErrorDetails, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(UserNameNotFoundException.class)
+    public final ResponseEntity<Object> handleUserNameNotFoundException(UserNameNotFoundException ex, WebRequest request){
+        CustomErrorDetails customErrorDetails = new CustomErrorDetails(new Date(),
+                ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(customErrorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(CategoryNameNotFoundException.class)
+    public final ResponseEntity<Object> handleCategoryNameNotFoundException(CategoryNameNotFoundException ex, WebRequest request){
+        CustomErrorDetails customErrorDetails = new CustomErrorDetails(new Date(),
+                ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(customErrorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ProductNameNotFoundException.class)
+    public final ResponseEntity<Object> handleProductNameNotFoundException(ProductNameNotFoundException ex, WebRequest request){
+        CustomErrorDetails customErrorDetails = new CustomErrorDetails(new Date(),
+                ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(customErrorDetails, HttpStatus.NOT_FOUND);
+    }
+
+
+
     //ConstraintViolationException
     @ExceptionHandler(ConstraintViolationException.class)
     public final  ResponseEntity<Object> handleConstraintViolationException(ConstraintViolationException ex,WebRequest request){

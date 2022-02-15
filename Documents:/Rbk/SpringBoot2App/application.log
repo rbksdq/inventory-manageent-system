@@ -1,0 +1,36 @@
+2022-02-15T15:48:30.061+0500 INFO HV000001: Hibernate Validator 6.2.0.Final
+2022-02-15T15:48:30.084+0500 INFO Starting InventoryManagementSystemApplication using Java 17.0.1 on LDEV-RABEEKASADIQ with PID 85693 (/home/rabeekasadiq/Downloads/inventory-management-system/target/classes started by rabeekasadiq in /home/rabeekasadiq/Downloads/inventory-management-system)
+2022-02-15T15:48:30.089+0500 DEBUG Running with Spring Boot v2.6.1, Spring v5.3.13
+2022-02-15T15:48:30.090+0500 INFO No active profile set, falling back to default profiles: default
+2022-02-15T15:48:30.169+0500 INFO Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-15T15:48:30.170+0500 INFO For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-15T15:48:30.969+0500 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-15T15:48:31.036+0500 INFO Finished Spring Data repository scanning in 58 ms. Found 6 JPA repository interfaces.
+2022-02-15T15:48:31.639+0500 INFO Tomcat initialized with port(s): 8080 (http)
+2022-02-15T15:48:31.647+0500 INFO Initializing ProtocolHandler ["http-nio-8080"]
+2022-02-15T15:48:31.648+0500 INFO Starting service [Tomcat]
+2022-02-15T15:48:31.648+0500 INFO Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-02-15T15:48:31.730+0500 INFO Initializing Spring embedded WebApplicationContext
+2022-02-15T15:48:31.731+0500 INFO Root WebApplicationContext: initialization completed in 1559 ms
+2022-02-15T15:48:31.912+0500 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-15T15:48:31.993+0500 INFO HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-02-15T15:48:32.153+0500 INFO HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-15T15:48:32.252+0500 INFO HikariPool-1 - Starting...
+2022-02-15T15:48:32.550+0500 INFO HikariPool-1 - Start completed.
+2022-02-15T15:48:32.567+0500 INFO HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-15T15:48:33.401+0500 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-15T15:48:33.411+0500 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-15T15:48:34.116+0500 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-15T15:48:34.625+0500 INFO LiveReload server is running on port 35729
+2022-02-15T15:48:34.651+0500 INFO Starting ProtocolHandler ["http-nio-8080"]
+2022-02-15T15:48:34.669+0500 INFO Tomcat started on port(s): 8080 (http) with context path ''
+2022-02-15T15:48:34.684+0500 INFO Started InventoryManagementSystemApplication in 4.944 seconds (JVM running for 6.369)
+2022-02-15T15:48:34.688+0500 TRACE this is a trace msg
+2022-02-15T15:48:34.689+0500 DEBUG this is a debug msg
+2022-02-15T15:48:34.690+0500 INFO this is an info msg
+2022-02-15T15:48:34.690+0500 WARN this is an warn msg
+2022-02-15T15:48:34.690+0500 ERROR this is an error msg
+2022-02-15T15:49:44.037+0500 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-15T15:49:44.038+0500 INFO Initializing Servlet 'dispatcherServlet'
+2022-02-15T15:49:44.040+0500 INFO Completed initialization in 2 ms
+2022-02-15T15:49:44.065+0500 INFO getting all categories

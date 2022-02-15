@@ -7,6 +7,8 @@ import com.inventorymanagementsystemrestservices.exception.CategoryExistExceptio
 import com.inventorymanagementsystemrestservices.exception.CategoryNameNotFoundException;
 import com.inventorymanagementsystemrestservices.exception.CategoryNotFoundException;
 import com.inventorymanagementsystemrestservices.service.CategoryService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -27,17 +29,23 @@ public class CategoryController {
         @Autowired
         public CategoryService categoryService;
 
+        Logger logger= LoggerFactory.getLogger(CategoryController.class);
 
-        @RequestMapping("")
+
+
+    @RequestMapping("")
+
         public List<Category> getAllCategory(){
 
+        logger.info("getting all categories");
             return categoryService.getAllCategory();
         }
 
 
+
         @PostMapping
         public ResponseEntity<User> createCategory(@RequestBody Category category, UriComponentsBuilder builder) {
-
+            logger.info("creating a new category");
            try {
                categoryService.createCategory(category);
                HttpHeaders headers= new HttpHeaders();
@@ -60,22 +68,15 @@ public class CategoryController {
 
 
 
-        @DeleteMapping("/{id}")
+        @DeleteMapping("/{categoryId}")
         public void deleteCategoryById(@PathVariable("categoryId") int categoryId) {
             try {
                 categoryService.deleteCategoryById(categoryId);
             } catch (CategoryNotFoundException ex) {
-                throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getMessage());
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage());
             }
         }
-//
-//        public void  deleteCategoryById (@PathVariable("id") int id/*, Category category*/){
-//            try {
-//                categoryService.deleteCategoryById(id);
-//            } catch (CategoryNotFoundException ex){
-//                throw new ResponseStatusException(HttpStatus.NOT_FOUND,ex.getMessage());
-//            }
-//        }
+
 
         @GetMapping("/bycategoryname/{categoryname}")
         public Category getCategoryByName(@PathVariable("categoryname") String categoryname) throws CategoryNameNotFoundException {

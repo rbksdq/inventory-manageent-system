@@ -3,7 +3,7 @@ package com.inventorymanagementsystemrestservices.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonView;
-import io.swagger.annotations.ApiModel;
+//import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import javax.persistence.*;

@@ -4,6 +4,7 @@ package com.inventorymanagementsystemrestservices.controller;
 import com.inventorymanagementsystemrestservices.entity.Product;
 import com.inventorymanagementsystemrestservices.entity.Stock;
 import com.inventorymanagementsystemrestservices.exception.ProductNameNotFoundException;
+import com.inventorymanagementsystemrestservices.exception.ProductNotFoundException;
 import com.inventorymanagementsystemrestservices.exception.StockNotFoundException;
 import com.inventorymanagementsystemrestservices.repository.CategoryRepo;
 import com.inventorymanagementsystemrestservices.repository.ProductRepo;
@@ -54,8 +55,8 @@ public class StockController {
         return productOptional.get().getStocks();
     }
 
-    @PutMapping("/{stockid}")
-    public Stock updateStockById(int stockId, Stock stock) throws StockNotFoundException {
+    @PutMapping("/{stockId}")
+    public Stock updateStockById(@PathVariable int stockId,@RequestBody Stock stock) throws StockNotFoundException {
         Optional<Stock> stockOptional= stockRepo.findById(stockId);
         if(!stockOptional.isPresent()){
             throw new StockNotFoundException("doesnt exist");
@@ -63,6 +64,18 @@ public class StockController {
         stock.setStockId(stockId);
         return stockRepo.save(stock);
     }
+
+    @DeleteMapping("/{stockId}")
+    public void deleteStockById(@PathVariable int stockId, Stock stock) throws ProductNotFoundException {
+        Optional<Stock> optionalStock = stockRepo.findById(stockId);
+        if (!optionalStock.isPresent()){
+            throw new ProductNotFoundException("stock doestn exist");
+        }
+        stockRepo.delete(stock);
+    }
+
+    //works perfectly except update . it works but doesnt actually updates .
+
 
 //    @PutMapping("/{stockid}")
 //    public Stock updateStockById(int productid, Product product, int quantity) throws ProductNameNotFoundException {
@@ -118,4 +131,3 @@ public class StockController {
 }
 
 
-//works perfectly but not put and delete.
