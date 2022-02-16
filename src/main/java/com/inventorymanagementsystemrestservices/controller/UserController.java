@@ -7,6 +7,7 @@ import com.inventorymanagementsystemrestservices.exception.RoleNameNotFoundExcep
 import com.inventorymanagementsystemrestservices.exception.UserNameNotFoundException;
 import com.inventorymanagementsystemrestservices.repository.RoleRepo;
 import com.inventorymanagementsystemrestservices.repository.UserRepo;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,8 @@ import java.util.Optional;
 
 
 @RestController
+@Api(tags = "User Related RESTful APIs", value = "User Controller",description = "Controller for User Related RESTful APIs")
+
 @RequestMapping(value = "/roles")
 public class UserController {
 

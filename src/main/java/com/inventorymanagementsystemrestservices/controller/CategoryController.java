@@ -7,6 +7,8 @@ import com.inventorymanagementsystemrestservices.exception.CategoryExistExceptio
 import com.inventorymanagementsystemrestservices.exception.CategoryNameNotFoundException;
 import com.inventorymanagementsystemrestservices.exception.CategoryNotFoundException;
 import com.inventorymanagementsystemrestservices.service.CategoryService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.management.relation.RoleNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
+@Api(tags = "Category Related RESTful APIs", value = "Category Controller",description = "Controller for Category Related RESTful APIs")
 @RestController
 @RequestMapping("/categories")
 public class CategoryController {
@@ -32,9 +34,8 @@ public class CategoryController {
         Logger logger= LoggerFactory.getLogger(CategoryController.class);
 
 
-
+    @ApiOperation(value = "Retrieve all Categories ")
     @RequestMapping("")
-
         public List<Category> getAllCategory(){
 
         logger.info("getting all categories");
@@ -42,7 +43,7 @@ public class CategoryController {
         }
 
 
-
+    @ApiOperation(value = "Create a Category ")
         @PostMapping
         public ResponseEntity<User> createCategory(@RequestBody Category category, UriComponentsBuilder builder) {
             logger.info("creating a new category");
@@ -56,10 +57,11 @@ public class CategoryController {
            }
         }
 
-
+    @ApiOperation(value = "update a Category ")
         @PutMapping("/{id}")
         public Category updateCategoryById(@PathVariable("id") int id, @RequestBody Category category){
-            try{
+        logger.info("updating category");
+        try{
                 return categoryService.updateCategoryById(id, category);
             } catch (CategoryNotFoundException ex){
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND,ex.getMessage());
@@ -67,9 +69,10 @@ public class CategoryController {
         }
 
 
-
+    @ApiOperation(value = "Delete a Category ")
         @DeleteMapping("/{categoryId}")
         public void deleteCategoryById(@PathVariable("categoryId") int categoryId) {
+           logger.info("deleted a category");
             try {
                 categoryService.deleteCategoryById(categoryId);
             } catch (CategoryNotFoundException ex) {
@@ -77,15 +80,17 @@ public class CategoryController {
             }
         }
 
-
+    @ApiOperation(value = "Retrieve a Category using category name ")
         @GetMapping("/bycategoryname/{categoryname}")
         public Category getCategoryByName(@PathVariable("categoryname") String categoryname) throws CategoryNameNotFoundException {
+           logger.info("fetching a category by its name");
             Category category = categoryService.getCategoryByName(categoryname);
             if(category==null)
                     throw new CategoryNameNotFoundException("CategoryName: '" + categoryname + "' not found in user repository");
             return category;
         }
 
+    @ApiOperation(value = "retrieve a Category by its Id ")
         @GetMapping("/{id}")
         public Category getCategoryById(@PathVariable("id")  int  id)  {
                 try {

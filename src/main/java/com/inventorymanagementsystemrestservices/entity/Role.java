@@ -3,7 +3,8 @@ package com.inventorymanagementsystemrestservices.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonView;
-//import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,7 +12,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
-//@ApiModel(description = "this model is to create a roles") //swagger
+@ApiModel(description = "this model is to create a roles") //swagger
 @Data
 @Entity
 @Table (name="Role")
@@ -20,7 +21,7 @@ import java.util.List;
 public class Role implements Serializable {
 
         private static final long serialVersionUID = 1L;
-
+    @ApiModelProperty(notes = "Auto generated unique id", required = true,position = 1)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int roleId;

@@ -7,12 +7,15 @@ import com.inventorymanagementsystemrestservices.exception.CategoryNameNotFoundE
 import com.inventorymanagementsystemrestservices.exception.ProductNameNotFoundException;
 import com.inventorymanagementsystemrestservices.repository.CategoryRepo;
 import com.inventorymanagementsystemrestservices.repository.ProductRepo;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@Api(tags = "Product Related RESTful APIs", value = "Product Controller",description = "Controller for Product Related RESTful APIs")
+
 @RequestMapping(value = "categories/{categoryid}/products")
 //@RequestMapping(value="categories/{id}/products")
 public class ProductController {

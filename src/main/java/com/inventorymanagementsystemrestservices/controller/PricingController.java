@@ -9,6 +9,7 @@ import com.inventorymanagementsystemrestservices.exception.ProductNameNotFoundEx
 import com.inventorymanagementsystemrestservices.repository.CategoryRepo;
 import com.inventorymanagementsystemrestservices.repository.PricingRepo;
 import com.inventorymanagementsystemrestservices.repository.ProductRepo;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@Api(tags = "Pricing Related RESTful APIs", value = "Pricing Controller",description = "Controller for Pricing Related RESTful APIs")
 @RequestMapping(value = "products/{productid}/pricing")
 public class PricingController {
 

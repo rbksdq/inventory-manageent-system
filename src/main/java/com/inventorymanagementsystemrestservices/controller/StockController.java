@@ -9,6 +9,7 @@ import com.inventorymanagementsystemrestservices.exception.StockNotFoundExceptio
 import com.inventorymanagementsystemrestservices.repository.CategoryRepo;
 import com.inventorymanagementsystemrestservices.repository.ProductRepo;
 import com.inventorymanagementsystemrestservices.repository.StockRepo;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@Api(tags = "Stock Related RESTful APIs", value = "Stock Controller",description = "Controller for Stock Related RESTful APIs")
+
 @RequestMapping(value = "categories/{categoryid}/products/{productid}/stock")
 public class StockController {
 
