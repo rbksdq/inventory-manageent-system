@@ -24,6 +24,8 @@
 //    @Autowired
 //    private JwtTokenFilter jwtTokenFilter;
 //
+      //  private String authorized.url=[]; //made this for accessing application.properties and then passing it here in antMatchers for others to access too
+
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //
@@ -33,11 +35,8 @@
 //    @Override
 //    protected void configure(HttpSecurity httpSecurity) throws Exception {
 //        httpSecurity.csrf().disable()
-//                .authorizeRequests().antMatchers("/authenticate")/*.hasAnyRole("Admin")
-//                .antMatchers("/roles").hasAnyRole("Admin")
-//                .antMatchers("/roles/{roleid}").hasAnyRole("Admin")
-//                .antMatchers("/roles/byrolename/{rolename}").hasAnyRole("Admin")*/
-//                .permitAll()
+//                .authorizeRequests().antMatchers("/authenticate")
+//                .antMatchers("authorized.url)
 //                .anyRequest().authenticated().and().
 //                exceptionHandling().and().sessionManagement()
 //                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
